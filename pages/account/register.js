@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FaUser } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AuthContext from '@/context/AuthContext';
 import Layout from '@/components/Layout';
 import styles from '@/styles/AuthForm.module.css';
 
@@ -12,6 +13,8 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
+  const { register, error } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -20,7 +23,7 @@ const RegisterPage = () => {
       return;
     }
 
-    console.log({ email, password, username });
+    register({ email, password, username });
   };
 
   return (
