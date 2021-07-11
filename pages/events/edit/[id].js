@@ -182,9 +182,12 @@ const EditEventPage = ({ evt }) => {
 
 export default EditEventPage;
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
+  // req - here are cookie located
   const res = await fetch(`${API_URL}/events/${id}`);
   const evt = await res.json();
+
+  console.log(req.headers.cookie);
 
   return {
     props: {
