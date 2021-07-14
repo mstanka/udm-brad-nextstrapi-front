@@ -19,6 +19,7 @@ const LoginPage = () => {
     e.preventDefault();
     login({ email, password });
   };
+  
   return (
     <Layout title="User login">
       <div className={styles.auth}>

@@ -28,7 +28,7 @@ const Header = () => {
           </li>
           {user ? (
             // if logged in
-            <Fragment>
+            <>
               <li>
                 <Link href="/events/add">
                   <a>Add Event</a>
@@ -39,22 +39,26 @@ const Header = () => {
                   <a>Dashboard</a>
                 </Link>
               </li>
-              <button
-                onClick={() => logout()}
-                className="btn-secondary btn-icon"
-              >
-                <FaSignOutAlt /> Logout
-              </button>
-            </Fragment>
+              <li>
+                <button
+                  onClick={() => logout()}
+                  className="btn-secondary btn-icon"
+                >
+                  <FaSignOutAlt /> Logout
+                </button>
+              </li>
+            </>
           ) : (
             // if logged out
-            <li>
-              <Link href="/account/login">
-                <a className="btn-secondary btn-icon">
-                  <FaSignInAlt /> Login
-                </a>
-              </Link>
-            </li>
+            <>
+              <li>
+                <Link href="/account/login">
+                  <a className="btn-secondary btn-icon">
+                    <FaSignInAlt /> Login
+                  </a>
+                </Link>
+              </li>
+            </>
           )}
         </ul>
       </nav>
